@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <!--/*/ <th:block th:include="head :: head"/> /*/-->
+
+    <script src="https://global.oktacdn.com/okta-signin-widget/5.5.2/js/okta-sign-in.min.js" type="text/javascript"></script>
+    <link href="https://global.oktacdn.com/okta-signin-widget/5.5.2/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body class="login">
+  <div id="sign-in-widget"></div>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+var config = {};
+
+config.baseUrl = /*[[${oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
+config.clientId = /*[[${oktaClientId}]]*/ '{clientId}';
+config.redirectUri = /*[[${redirectUri}]]*/ '{redirectUri}';
+config.logo = '/img/money-transfer.svg';
+config.authParams = {
+  issuer: /*[[${issuerUri}]]*/ '{issuerUri}',
+  responseType: 'code',
+  pkce: false,
+  state: /*[[${state}]]*/ '{state}' || false,
+  nonce: /*[[${nonce}]]*/ '{nonce}',
+  scopes: /*[[${scopes}]]*/ '[scopes]',
+  display: 'page'
+};
+
+config.idps = [
+   {type: 'GOOGLE', id: '0oa391gk4xlfVo8Ya5d7' }
+];
+
+new OktaSignIn(config).renderEl(
+  { el: '#sign-in-widget' },
+  function (res) {
+    console.log(res)
+  },
+  function (err) {
+    console.log(err)
+  }
+);
+/*]]>*/
+</script>
+
+</body>
+</html>

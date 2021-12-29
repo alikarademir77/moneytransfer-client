@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Registration</title>
+    <!--/*/ <th:block th:include="head :: head"/> /*/-->
+</head>
+<body id="samples">
+<div th:replace="menu :: menu"></div>
+
+<div id="content" class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Sign up</h3>
+        </div>
+        <div class="panel-body">
+            <form method="post" th:action="@{/register}" th:object="${signup}" class="col card p-3 mb-5">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input id="firstName" placeholder="Enter first name" required type="text" th:field="*{firstName}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input id="lastName" placeholder="Enter last name" required type="text" th:field="*{lastName}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" placeholder="Enter email" required type="text" th:field="*{email}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">password</label>
+                    <input id="password" placeholder="Enter password" required type="password" th:field="*{password}"
+                           class="form-control"/>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Sign up">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          okta:
+            authorization-uri: http://localhost:${server.port}/signin
+            user-name-attribute: email
+
+okta:
+  client:
+    orgUrl: https://dev-66162688.okta.com
+    token: 00Dj8suL1wRLZAzd18UU5Rfrynk-OSzj6jh2GKeKUP
+  oauth2:
+    redirect-uri: /authorization-code/callback
+    token-uri: https://dev-66162688.okta.com/oauth2/aus3aq5nujOJ4vBv55d7/v1/token
+    issuer: https://dev-66162688.okta.com/oauth2/aus3aq5nujOJ4vBv55d7
+    clientSecret: A0IdNzZJN7cHLBDSvhS-xxgyqOiM24hDM_-MpDkP
+    clientId: 0oa38n1sh8bAVe7P25d7
+    scopes:
+      - openid
+      - email
+      - profile
+      - offline_access
+      - customer
+      - transaction

@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>OAuth2 & OIDC Tokens</title>
+    <!--/*/ <th:block th:include="head :: head"/> /*/-->
+</head>
+<body id="samples">
+<div th:replace="menu :: menu"></div>
+
+<div id="content" class="container">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">ID Token</h3>
+        </div>
+        <div class="panel-body">
+            <h5 id="idToken"><pre th:text="${tokens.idToken}">ID Token</pre></h5>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Access Token</h3>
+        </div>
+        <div class="panel-body">
+            <h5 id="accessToken"><pre  th:text="${tokens.accessToken}">Access Token</pre></h5>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a id="refresh-button" th:href="@{/refresh}">Refresh Token</a></h3>
+        </div>
+        <div class="panel-body">
+            <h5 th:text="${tokens.refreshToken}">Refresh Token</h5>
+            <h5 th:text="'IssuedAt:' + ${tokens.refreshTokenIssuedAt}">Refresh Token</h5>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
